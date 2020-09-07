@@ -1,0 +1,66 @@
+
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title> {% block title %}
+        {% endblock title %}</title>
+        <style>
+            .navbar{
+                position: fixed;
+                width: 100%;
+                height: 6.89%;
+                background-color: black;
+                color:aliceblue;
+                text-decoration: none;
+            }
+            .content{
+
+                display: inline;
+                position: absolute;
+                top: 46%;
+                left: 79.90%;
+            }
+            .mess{
+                display: block;
+                position: fixed;
+                top:50%;
+                right: 50%;
+                transform: translate(-50%,-50%);
+                height: 200px;
+                width: 200%;
+            }
+        </style>
+    </head>
+    <body>
+       <div class="navbar">
+           <div class="content">
+               <a href="about" style="color: aliceblue;text-decoration: none;">about</a>
+               <a href="services" style="color: aliceblue;text-decoration: none;">services</a>
+               <a href="contact" style="color: aliceblue;text-decoration: none;">contact</a>
+               <a href="admin/" style="color: aliceblue;text-decoration: none;">admin</a>
+              
+           </div>
+       
+       </div>
+       <p>
+       {% block body %}
+       {% endblock body %}
+       </p>
+       {% if messages %}
+       {% for message in messages %}
+       <div class=" {{message.tags}}" id="mess_box">
+           <div id = "close">x</div>
+            {{message}}
+       </div>
+       {% endfor %}
+       {% endif %}
+       <script>
+            box = Document.getElenmentById('mess_box') ;
+            Document.getElenmentById('close').addEventListener("click",()=>{
+
+                box.style.Display= none;
+           })
+       </script>
+    </body>
+
+</html>

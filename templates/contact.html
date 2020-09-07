@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}
+contact
+{% endblock title %}
+{% block body %}
+<div style="position:fixed;top:20%;background-color:balck">
+<form method="POST" action="/contact">
+    {% csrf_token %}
+    <input type="name" name="ques">
+    <button type="submit">submit</button>
+</form>
+</div>
+{% endblock body %}
